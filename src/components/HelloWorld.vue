@@ -18,11 +18,6 @@
               <img :src="linkedinlogo">
             </a>
           </div>
-          <div class="social-icon-square">
-            <a href="https://www.instagram.com/oconnill/">
-              <img :src="instalogo">
-            </a>
-          </div>
           <div class="social-icon-rectangle">
             <a href="https://github.com/oconnill">
               <img :src="gitlogo">
@@ -48,11 +43,11 @@
             <br>
             Back-end to front-end.
             <br>
-            I enjoy it all.  
+           I'm always trying to<img class="sm-logo" :src="dosmlogo"> more.  
           </p>
         </div>
         <div class="col-sm-6">
-            <a target="_blank" href="../assets/resume.pdf">
+            <a target="_blank" href="../assets/daniel-oconnell-resume.pdf" download="../assets/daniel-oconnell-resume.pdf">
           <img class="dologo" :src="dologo">
           </a>
         </div>
@@ -175,17 +170,36 @@
 
       <!-- Spacer -->
 
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-xs-12 spacer"></div>
-      </div> -->
+      </div>
 
       <!-- Row Five -->
 
       <div class="row rev" v-scroll-reveal.reset>
-        <div class="col-sm-12">
+      <div class="col-sm-6">
+        <div class="content">
+          <div class="content-overlay">
+            <h1>Shift Click, an Etch A Sketch inspired font</h1>
+          </div>
           <img class="content-image work-image-l" :src="shiftclick">
+          <div class="content-details fadeIn-bottom">
+            <button class="btn btn-default block-btn">
+              <a href="../assets/shiftclick.ttf" download>DOWNLOAD</a>
+            </button>
+          </div>
+        </div>
+        </div>
+        <div class="col-sm-6">
+          <img class="content-image work-image-l" :src="livingwaters">
         </div>
       </div>
+
+            <!-- Spacer -->
+
+            <div class="row">
+              <div class="col-xs-12 spacer"></div>
+            </div>
 
       <!-- <div class="main-image .img-responsive">
         <img src="assets/images/bwjumbotron.jpg">
@@ -212,7 +226,7 @@
             <br> Education:
             <br> 
             Boise Code Works - Immersive Full Stack Developer Course
-            <br> Columia College - Chicago Bachelors Fine Arts Graphic Design
+            <br> Columbia College - Chicago Bachelors Fine Arts Graphic Design
           </p>
           <div class="social-icon-square2">
             <a href="mailto:mrdanieloconnellsoffice@gmail.com">
@@ -258,7 +272,9 @@
         poster91: require('../assets/1991crop.jpg'),
         earlyfront: require('../assets/earlychildhoodfront.jpg'),
         earlyback: require('../assets/earlychildhoodback.jpg'),
-        shiftclick: require('../assets/shiftclickcrop.png'),
+        shiftclick: require('../assets/shiftclickalpha.png'),
+        livingwaters: require('../assets/lwrecord.jpg'),
+        dosmlogo: require('../assets/dosmlogogreen.png'),
       }
     }
   }
@@ -268,6 +284,12 @@
 <style scoped>
   body {
     background-color: #FFFFFF;
+  }
+
+  .sm-logo {
+    height: 23px;
+    width: 45px;
+
   }
 
   .rev {
