@@ -46,7 +46,7 @@
             <br>
             From pencil to pixel.
             <br>
-            From back-end to front-end.
+            Back-end to front-end.
             <br>
             I enjoy it all.  
           </p>
