@@ -38,17 +38,15 @@
         <div class="col-sm-6 bio">
           <p>
             <br>Starting with an idea and a blank page.
-            <br>
-            From pencil to pixel.
-            <br>
-            Back-end to front-end.
-            <br>
-           I'm always trying to<img class="sm-logo" :src="dosmlogo"> more.  
+            <br> From pencil to pixel.
+            <br> Back-end to front-end.
+            <br> I'm always trying to
+            <img class="sm-logo" :src="dosmlogo"> more.
           </p>
         </div>
         <div class="col-sm-6">
-            <a target="_blank" href="../assets/daniel-oconnell-resume.pdf" download="../assets/daniel-oconnell-resume.pdf">
-          <img class="dologo" :src="dologo">
+          <a target="_blank" href="http://www.mrdanieloconnell.com/daniel-oconnell-resume.pdf" download="../assets/daniel-oconnell-resume.pdf">
+            <img class="dologo" :src="dologo">
           </a>
         </div>
       </div>
@@ -110,13 +108,13 @@
       <!-- Row Two -->
 
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6" v-scroll-reveal.reset>
           <div class="content">
             <div class="content-overlay">
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" v-scroll-reveal.reset>
           <div class="content">
             <div class="content-overlay">
               <h1>Personal dashboard for weather, rss feeds, local events, todo lists, photos, and spotify</h1>
@@ -142,11 +140,11 @@
 
       <!-- Row Three -->
 
-      <div class="row rev" v-scroll-reveal.reset>
-        <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-6" v-scroll-reveal.reset>
           <img class="content-image work-image-l" :src="poster86">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" v-scroll-reveal.reset>
           <img class="content-image work-image-l" :src="poster91">
         </div>
       </div>
@@ -159,11 +157,11 @@
 
       <!-- Row Four -->
 
-      <div class="row rev" v-scroll-reveal.reset>
-        <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-6" v-scroll-reveal.reset>
           <img class="content-image work-image-l" :src="earlyfront">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" v-scroll-reveal.reset>
           <img class="content-image work-image-l" :src="earlyback">
         </div>
       </div>
@@ -176,39 +174,44 @@
 
       <!-- Row Five -->
 
-      <div class="row rev" v-scroll-reveal.reset>
-      <div class="col-sm-6">
-        <div class="content">
-          <div class="content-overlay">
-            <h1>Shift Click, an Etch A Sketch inspired font</h1>
-          </div>
-          <img class="content-image work-image-l" :src="shiftclick">
-          <div class="content-details fadeIn-bottom">
-            <button class="btn btn-default block-btn">
-              <a href="../assets/shiftclick.ttf" download>DOWNLOAD</a>
-            </button>
+      <div class="row">
+        <div class="col-sm-6" v-scroll-reveal.reset>
+          <div class="content">
+            <div class="content-overlay">
+              <h1>Shift Click, an Etch A Sketch inspired font</h1>
+            </div>
+            <img class="content-image work-image-l" :src="shiftclick">
+            <div class="content-details fadeIn-bottom">
+              <button class="btn btn-default block-btn">
+                <a href="http://www.mrdanieloconnell.com/shiftclick.ttf" download>DOWNLOAD</a>
+              </button>
+            </div>
           </div>
         </div>
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" v-scroll-reveal.reset>
           <img class="content-image work-image-l" :src="livingwaters">
         </div>
       </div>
 
-            <!-- Spacer -->
+      <!-- Spacer -->
 
-            <div class="row">
-              <div class="col-xs-12 spacer"></div>
-            </div>
-
-      <!-- <div class="main-image .img-responsive">
-        <img src="assets/images/bwjumbotron.jpg">
-      </div>
       <div class="row">
         <div class="col-xs-12 spacer"></div>
-      </div> -->
+      </div>
+
+      <!-- Row six -->
+
       <div class="row">
-        <div class="col-sm-6 bio2">
+          <div class="col-sm-6 rev" v-scroll-reveal.reset>
+              <img class="content-image work-image-l" :src="magcd">
+            </div>
+        <div class="col-sm-6 rev" v-scroll-reveal.reset>
+          <img class="content-image work-image-l" :src="magcase">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 bio2">
           Daniel O’Connell holds a Bachelor of Fine Arts Degree in Graphic Design from Columbia College Chicago. Daniel spent years
           doing freelance work in the field of packaging design. He created memorable packaging for national recording artists
           and an international educational movie series. When not freelancing, Daniel maintained an award winning career
@@ -224,8 +227,7 @@
             <br> Print Design: Big Brothers Big Sisters of America
             <br>
             <br> Education:
-            <br> 
-            Boise Code Works - Immersive Full Stack Developer Course
+            <br> Boise Code Works - Immersive Full Stack Developer Course
             <br> Columbia College - Chicago Bachelors Fine Arts Graphic Design
           </p>
           <div class="social-icon-square2">
@@ -235,7 +237,7 @@
             </a>
           </div>
         </div>
-        <div class="col-sm-6 biopic text-right">
+        <div class="col-xs-6 biopic text-right">
           <img :src="headshot" alt="">
         </div>
       </div>
@@ -254,7 +256,7 @@
 
 <script>
   export default {
-    name: 'HelloWorld',
+    name: 'Home',
     data() {
       return {
         // developement
@@ -275,6 +277,8 @@
         shiftclick: require('../assets/shiftclickalpha.png'),
         livingwaters: require('../assets/lwrecord.jpg'),
         dosmlogo: require('../assets/dosmlogogreen.png'),
+        magcd: require('../assets/magnoliacd.jpg'),
+        magcase: require('../assets/magnoliamemoirfront.jpg'),
       }
     }
   }
@@ -336,6 +340,7 @@
   .work-image-l {
     max-width: 100%;
     max-height: 100%;
+
   }
 
   .work-image-r {
@@ -343,11 +348,6 @@
     max-height: 100%;
     text-align: right;
 
-  }
-
-  .gutter {
-    width: 20px;
-    background-color: aqua;
   }
 
   .dologo {
@@ -376,7 +376,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: left;
-    font-size: 15px
+    font-size: 15px;
   }
 
   .circle {
