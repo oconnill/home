@@ -5,8 +5,12 @@
   "author": "oconnill <doconnelldesign@gmail.com>",
   "private": true,
   "scripts": {
-    "start": "node /server/index.js"
-},
+    "dev": "node build/dev-server.js",
+    "start": "node /server/index.js",
+    "build": "node build/build.js",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "test": "npm run unit"
+  },
   "dependencies": {
     "express": "^4.16.2",
     "vue": "^2.5.2",
