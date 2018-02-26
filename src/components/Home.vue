@@ -83,7 +83,7 @@
         <div class="col-sm-6">
           <div class="content">
             <div class="content-overlay">
-              <h1>Organzie work flow with custom boards, lists, tasks, and notes</h1>
+              <h1>Organize work flow with custom boards, lists, tasks, and notes</h1>
             </div>
             <img class="content-image work-image-r" :src="kanban">
             <div class="content-details fadeIn-bottom">
@@ -202,12 +202,18 @@
       <!-- Row six -->
 
       <div class="row">
-          <div class="col-sm-6 rev" v-scroll-reveal.reset>
-              <img class="content-image work-image-l" :src="magcd">
-            </div>
+        <div class="col-sm-6 rev" v-scroll-reveal.reset>
+          <img class="content-image work-image-l" :src="magcd">
+        </div>
         <div class="col-sm-6 rev" v-scroll-reveal.reset>
           <img class="content-image work-image-l" :src="magcase">
         </div>
+      </div>
+
+      <!-- Spacer -->
+
+      <div class="row">
+        <div class="col-xs-12 spacer"></div>
       </div>
 
       <div class="row">
