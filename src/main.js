@@ -7,7 +7,7 @@ import VueScrollReveal from 'vue-scroll-reveal';
 
 Vue.use(VueScrollReveal);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
@@ -15,4 +15,4 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
-})
+});

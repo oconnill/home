@@ -5,14 +5,14 @@
   "author": "oconnill <doconnelldesign@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node server.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
     "build": "node build/build.js",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "test": "npm run unit"
+    "scss": "node-sass --watch sass -o css"
   },
   "dependencies": {
     "express": "^4.16.2",
+    "node-sass": "^4.9.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-scroll-reveal": "^1.0.5"

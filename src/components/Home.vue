@@ -1,558 +1,539 @@
 <template>
-  <div>
-
     <div class="container">
-      <!-- Nav Bar -->
-      <div class="row navbar">
-        <div class="col-sm-4 circle-align">
-          <div class="linktype logo-align nametype">
+        <!-- Nav Bar -->
+        <div class="row content-spacing">
+            <div class="col-sm-4 circle-align">
+                <div class="linktype logo-align nametype">
 
-          </div>
-        </div>
-        <div class="col-sm-4 text-center logo-align nametype">
-          <h3>Daniel O'Connell</h3>
-        </div>
-        <div class="col-sm-4 social-icon-align">
-          <div class="social-icon-square">
-            <a href="https://www.linkedin.com/in/daniel-o-connell-19a85865">
-              <img :src="linkedinlogo">
-            </a>
-          </div>
-          <div class="social-icon-rectangle">
-            <a href="https://github.com/oconnill">
-              <img :src="gitlogo">
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-      <!-- Bio / Logo -->
-
-      <div class="row">
-        <div class="col-sm-6 bio">
-          <p>
-            <br>Starting with an idea and a blank page.
-            <br> From pencil to pixel.
-            <br> Back-end to front-end.
-            <br> I'm always trying to
-            <img class="sm-logo" :src="dosmlogo"> more.
-          </p>
-        </div>
-        <div class="col-sm-6">
-          <a target="_blank" href="http://www.mrdanieloconnell.com/daniel-oconnell-resume.pdf" download="../assets/daniel-oconnell-resume.pdf">
-            <img class="dologo" :src="dologo">
-          </a>
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-
-
-      <!-- Work -->
-
-      <!-- Row One -->
-
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="content">
-            <div class="content-overlay">
-              <h1>Build a playlist of songs from the I Tunes API</h1>
+                </div>
             </div>
-            <img class="content-image work-image-l" :src="musicSelector">
-            <div class="content-details fadeIn-bottom">
-              <button class="btn btn-default block-btn">
-                <a target="_blank" href="https://vue-music-oconnell.herokuapp.com/">DEMO</a>
-              </button>
-              <button class="btn btn-default block-btn">
-                <a target="_blank" href="https://github.com/oconnill/vue-music-checkpoint">CODE</a>
-              </button>
+            <div class="col-sm-4 text-center logo-align nametype">
+                <h3>Daniel O'Connell</h3>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="content">
-            <div class="content-overlay">
-              <h1>Organize work flow with custom boards, lists, tasks, and notes</h1>
+            <div class="col-sm-4 social-icon-align">
+                <div class="social-icon-square">
+                    <a href="https://www.linkedin.com/in/daniel-o-connell-19a85865">
+                        <img :src="linkedinlogo">
+                    </a>
+                </div>
+                <div class="social-icon-rectangle">
+                    <a href="https://github.com/oconnill">
+                        <img :src="gitlogo">
+                    </a>
+                </div>
             </div>
-            <img class="content-image work-image-r" :src="kanban">
-            <div class="content-details fadeIn-bottom">
-              <button class="btn btn-default block-btn">
-                <a target="_blank" href="https://kanban-oconnell.herokuapp.com/">DEMO</a>
-              </button>
-              <button class="btn btn-default block-btn">
-                <a target="_blank" href="https://github.com/oconnill/vue-kanban">CODE</a>
-              </button>
+        </div>
+
+        <!-- Bio / Logo -->
+
+        <div class="row content-spacing" v-scroll-reveal.reset>
+            <div class="col-sm-6 bio">
+                <p>
+                    <br>Starting with an idea and a blank page.
+                    <br> From pencil to pixel.
+                    <br> Back-end to front-end.
+                    <br> I'm always trying to
+                    <img class="sm-logo" :src="dosmlogo"> more.
+                </p>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-
-      <!-- Row Two -->
-
-      <div class="row">
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <div class="content">
-            <div class="content-overlay">
+            <div class="col-sm-6 do-cont">
+                    <img class="dologo" :src="dologo">
             </div>
-          </div>
         </div>
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <div class="content">
-            <div class="content-overlay">
-              <h1>Personal dashboard for weather, rss feeds, local events, todo lists, photos, and spotify</h1>
+
+        <!-- Work -->
+
+        <!-- Row One -->
+
+        <div class="row content-spacing" v-scroll-reveal.reset>
+            <div class="col-sm-6 live-projects" v-for="liveProject in liveProjects">
+                <div class="content">
+                    <div class="content-overlay">
+                        <h1>{{ liveProject.description }}</h1>
+                    </div>
+                    <img class="content-image work-image-l" :src="liveProject.image">
+                    <div class="content-details fadeIn-bottom">
+                        <button v-if="liveProject.demoLink" class="btn btn-default block-btn">
+                            <a v-bind:href="liveProject.demoLink" target="_blank">DEMO</a>
+                        </button>
+                        <button v-if="liveProject.gitHubLink" class="btn btn-default block-btn">
+                            <a v-bind:href="liveProject.gitHubLink" target="_blank">CODE</a>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <img class="content-image work-image-l" :src="univrss">
-            <div class="content-details fadeIn-bottom">
-              <!-- <button class="btn btn-default block-btn">
-                    <a href="https://vue-music-oconnell.herokuapp.com/">DEMO</a>
-                  </button> -->
-              <button class="btn btn-default block-btn">
-                <a target="_blank" href="https://github.com/oconnill/Univ-Rss">CODE</a>
-              </button>
+        </div>
+
+        <div class="row content-spacing">
+            <div class="work-skills">
+                <div class="col-sm-6" v-scroll-reveal.reset v-for="projectImage in projectImages">
+                    <div v-if="!projectImage.shiftclick">
+                        <img class="content-image work-image-l" :src="projectImage">
+                    </div>
+                    <div v-else>
+                        <div class="content">
+                            <div class="content-overlay">
+                                <h1>Shift Click, an Etch A Sketch inspired font</h1>
+                            </div>
+                            <img class="content-image work-image-l" :src="shiftclick">
+                            <div class="content-details fadeIn-bottom">
+                                <button class="btn btn-default block-btn">
+                                    <a href="http://www.mrdanieloconnell.com/shiftclick.ttf" download>DOWNLOAD</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
 
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-      <!-- Row Three -->
-
-      <div class="row">
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <img class="content-image work-image-l" :src="poster86">
-        </div>
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <img class="content-image work-image-l" :src="poster91">
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-      <!-- Row Four -->
-
-      <div class="row">
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <img class="content-image work-image-l" :src="earlyfront">
-        </div>
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <img class="content-image work-image-l" :src="earlyback">
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-      <!-- Row Five -->
-
-      <div class="row">
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <div class="content">
-            <div class="content-overlay">
-              <h1>Shift Click, an Etch A Sketch inspired font</h1>
+        <div class="row content-spacing" v-scroll-reveal.reset>
+            <div class="col-sm-12 bio-copy bio2 content-spacing">
+                <p>
+                    Daniel O’Connell holds a Bachelor of Fine Arts Degree in Graphic Design from Columbia College
+                    Chicago. Daniel currently works as a web developer at Port One Five in Boise, Idaho. He has
+                    spent years
+                    doing freelance work in the field of packaging design. He created memorable packaging for
+                    national
+                    recording artists
+                    and an international educational movie series. When not freelancing, Daniel maintained an award
+                    winning career
+                    in mixology and hospitality, where he used his attention to detail and creativity to create featured
+                    cocktails in publications
+                    such as Chicago Tribune and Mandarin Quarterly. Daniel is also an invested community member who
+                    donates time and
+                    design work to many local non for profits like The Red Cross, Big Brothers Big Sisters of
+                    America,
+                    Greater Chicago
+                    Food Depository, and The Idaho Foodbank. In his free time he enjoys exploring the outdoors with
+                    his
+                    fiance and
+                    dog.
+                </p>
             </div>
-            <img class="content-image work-image-l" :src="shiftclick">
-            <div class="content-details fadeIn-bottom">
-              <button class="btn btn-default block-btn">
-                <a href="http://www.mrdanieloconnell.com/shiftclick.ttf" download>DOWNLOAD</a>
-              </button>
+            <div class="col-sm-6 bio2">
+                <br>
+                <p>
+                    <br> Web Developer: Port One Five
+                    <br> Freelance Designer: Learning Seed
+                    <br> Packaging Design: FAK, Alexander Burke, Rich Jones, Magnolia Memoir
+                    <br> Print Design: Big Brothers Big Sisters of America
+                    <br>
+                    <br> Education:
+                    <br> Boise Code Works - Immersive Full Stack Developer Course
+                    <br> Columbia College - Chicago Bachelors Fine Arts Graphic Design
+                </p>
+                <div class="social-icon-square2">
+                    <a href="mailto:mrdanieloconnellsoffice@gmail.com">
+                        <img :src="mail">
+                    </a>
+                </div>
             </div>
-          </div>
+            <div class="col-sm-6">
+                <div class="row bio22" v-for="skill in workSkills" v-scroll-reveal.reset>
+                    <div class="col-sm-4 skill-name">{{ skill.name }}</div>
+                    <div class="col-sm-8">
+                        <div class="progress" style="height: 4px;">
+                            <div class="progress-bar" role="progressbar"
+                                 v-bind:style="{ width: skill.skillLevel + '%' }" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6" v-scroll-reveal.reset>
-          <img class="content-image work-image-l" :src="livingwaters">
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-      <!-- Row six -->
-
-      <div class="row">
-        <div class="col-sm-6 rev" v-scroll-reveal.reset>
-          <img class="content-image work-image-l" :src="magcd">
-        </div>
-        <div class="col-sm-6 rev" v-scroll-reveal.reset>
-          <img class="content-image work-image-l" :src="magcase">
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-6 bio2">
-          Daniel O’Connell holds a Bachelor of Fine Arts Degree in Graphic Design from Columbia College Chicago. Daniel spent years
-          doing freelance work in the field of packaging design. He created memorable packaging for national recording artists
-          and an international educational movie series. When not freelancing, Daniel maintained an award winning career
-          in beverage hospitality, where he used his attention to detail and creativity to create featured cocktails in publications
-          such as Chicago Tribune and Mandarin Quarterly. Daniel is also an invested community member who donates time and
-          design work to many local non for profits like The Red Cross, Big Brothers Big Sisters of America, Greater Chicago
-          Food Depository, and The Idaho Foodbank. In his free time he enjoys exploring the outdoors with his fiance and
-          dog in Boise, Idaho.
-          <br>
-          <p>
-            <br> Freelance Designer: Learning Tree
-            <br> Packaging Design: FAK, Alexander Burke, Rich Jones, Magnolia Memoir
-            <br> Print Design: Big Brothers Big Sisters of America
-            <br>
-            <br> Education:
-            <br> Boise Code Works - Immersive Full Stack Developer Course
-            <br> Columbia College - Chicago Bachelors Fine Arts Graphic Design
-          </p>
-          <div class="social-icon-square2">
-            <a href="mailto:mrdanieloconnellsoffice@gmail.com">
-              Contact
-              <img :src="mail">
-            </a>
-          </div>
-        </div>
-        <div class="col-xs-6 biopic text-right">
-          <img :src="headshot" alt="">
-        </div>
-      </div>
-
-      <!-- Spacer -->
-
-      <div class="row">
-        <div class="col-xs-12 spacer"></div>
-      </div>
 
     </div>
-
-  </div>
-  </div>
 </template>
 
 <script>
-  export default {
-    name: 'Home',
-    data() {
-      return {
-        // developement
-        dologo: require('../assets/do-logo.png'),
-        gitlogo: require('../assets/GitHub_Logo.png'),
-        instalogo: require('../assets/instagram.png'),
-        linkedinlogo: require('../assets/linkedin.png'),
-        headshot: require('../assets/headshotcropped.jpg'),
-        mail: require('../assets/email-512.png'),
-        musicSelector: require('../assets/music-selector-hover.png'),
-        univrss: require('../assets/univrss-hover.png'),
-        kanban: require('../assets/kanban-hover.png'),
-        // design
-        poster86: require('../assets/1986crop.jpg'),
-        poster91: require('../assets/1991crop.jpg'),
-        earlyfront: require('../assets/earlychildhoodfront.jpg'),
-        earlyback: require('../assets/earlychildhoodback.jpg'),
-        shiftclick: require('../assets/shiftclickalpha.png'),
-        livingwaters: require('../assets/lwrecord.jpg'),
-        dosmlogo: require('../assets/dosmlogogreen.png'),
-        magcd: require('../assets/magnoliacd.jpg'),
-        magcase: require('../assets/magnoliamemoirfront.jpg'),
-      }
+    export default {
+        name: 'Home',
+        data() {
+            return {
+                projectImages: {
+                    poster86: require('../assets/1986crop.jpg'),
+                    poster91: require('../assets/1991crop.jpg'),
+                    earlyfront: require('../assets/earlychildhoodfront.jpg'),
+                    earlyback: require('../assets/earlychildhoodback.jpg'),
+                    livingwaters: require('../assets/lwrecord.jpg'),
+                    magcd: require('../assets/magnoliacd.jpg'),
+                    magcase: require('../assets/magnoliamemoirfront.jpg'),
+                    blackLine: require('../assets/blacklinelogo.png')
+                },
+                workSkills: {
+                    javascript: {
+                        name: 'Javascript',
+                        skillLevel: 78
+                    },
+                    php: {
+                        name: 'PHP',
+                        skillLevel: 75
+                    },
+                    vueJs: {
+                        name: 'Vuejs',
+                        skillLevel: 70
+                    },
+                    cSharp: {
+                        name: 'C#',
+                        skillLevel: 35
+                    },
+                    mySQL: {
+                        name: 'mySQL',
+                        skillLevel: 55
+                    },
+                    noSQL: {
+                        name: 'noSQL',
+                        skillLevel: 65
+                    },
+                    laravel: {
+                        name: 'Laravel',
+                        skillLevel: 70
+                    },
+                    nodeJs: {
+                        name: 'Nodejs',
+                        skillLevel: 60
+                    },
+                    wordPress: {
+                        name: 'WordPress',
+                        skillLevel: 85
+                    },
+                    html5: {
+                        name: 'Html5',
+                        skillLevel: 85
+                    },
+                    css: {
+                        name: 'CSS',
+                        skillLevel: 81
+                    },
+                    adobeCreativeSuite: {
+                        name: 'Adobe Creative Suite',
+                        skillLevel: 74
+                    },
+                },
+                liveProjects: {
+                    rvidaho: {
+                        name: 'RV Idaho',
+                        image: require('../assets/rvidaho_hover.png'),
+                        description: 'Built with a development team, a form for brochure sign-up.  All entries could be exported by admin to a .csv file type. Laravel, Javascript, and WordPress were used in the development.',
+                        demoLink: 'https://rvidaho.org/free-camping-guide/',
+                    },
+                    brundage: {
+                        name: 'Brundage',
+                        image: require('../assets/brundage_hover.png'),
+                        description: 'Updated homepage weather widget and worked to bring in a graph displaying snow data for base and summit depth',
+                        demoLink: 'https://brundage.com/',
+                    },
+                    kanban: {
+                        name: 'Kanban',
+                        image: require('../assets/kanban-hover.png'),
+                        description: 'Organize work flow with custom boards, lists, tasks, and notes',
+                        demoLink: "https://kanban-oconnell.herokuapp.com/",
+                        gitHubLink: 'https://github.com/oconnill/vue-kanban'
+                    },
+                    musicSelector: {
+                        name: 'Music Selector',
+                        image: require('../assets/music-selector-hover.png'),
+                        description: 'Build a playlist of songs from the I Tunes API',
+                        demoLink: 'https://vue-music-oconnell.herokuapp.com/',
+                        gitHubLink: 'https://github.com/oconnill/vue-music-checkpoint'
+                    },
+                    univrss: {
+                        name: 'Univ-Rss',
+                        image: require('../assets/univrss-hover.png'),
+                        description: 'Personal dashboard for weather, rss feeds, local events, todo lists, photos, and spotify',
+                        demoLink: '',
+                        gitHubLink: 'https://github.com/oconnill/Univ-Rss'
+                    },
+                    shiftClick: {
+                        name: 'Shift Click',
+                        image: require('../assets/shiftclickalpha.png'),
+                        description: 'Shift Click, an Etch A Sketch inspired font',
+                        demoLink: 'http://www.mrdanieloconnell.com/shiftclick.ttf',
+                        gitHubLink: ''
+                    },
+                },
+                dosmlogo: require('../assets/dosmlogogreen.png'),
+                dologo: require('../assets/do-logo.png'),
+                gitlogo: require('../assets/GitHub_Logo.png'),
+                instalogo: require('../assets/instagram.png'),
+                linkedinlogo: require('../assets/linkedin.png'),
+                headshot: require('../assets/headshotcropped.jpg'),
+                mail: require('../assets/email-512.png'),
+                resume: '../assets/daniel-oconnell-resume.pdf'
+            }
+        }
     }
-  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  body {
-    background-color: #FFFFFF;
-  }
+    body {
+        background-color: #FFFFFF;
+    }
 
-  .sm-logo {
-    height: 23px;
-    width: 45px;
+    .sm-logo {
+        height: 23px;
+        width: 45px;
+    }
 
-  }
+    .do-cont {
+        display: flex;
+        justify-content: center;
+    }
 
-  .rev {
-    height: 50vh;
-  }
+    .progress-bar {
+        background: #16a750;
+    }
 
-  /* Buttons */
+    .live-projects {
+        padding-bottom: 25px;
+    }
 
-  .block-btn {
-    border-radius: 0;
-    background: white;
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 40px;
-    /* color:#16a750; */
-    margin: 10px
-  }
+    .bio-copy {
+        text-align: left;
+    }
 
-  a:link {
-    color: orangered;
-  }
+    .content-spacing {
+        padding-bottom: 25px;
+    }
 
-  /* visited link */
+    .work-skills {
+        padding-bottom: 50px;
+    }
 
-  a:visited {
-    color: orangered;
-  }
+    /* Buttons */
 
-  /* mouse over link */
+    .block-btn {
+        border-radius: 0;
+        background: white;
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        margin: 10px
+    }
 
-  a:hover {
-    color: black;
-    text-decoration: none;
-  }
+    a:link {
+        color: orangered;
+    }
 
-  /* Buttons */
+    /* visited link */
 
-  .right-handle {
-    display: flex;
-    justify-content: flex-end;
-  }
+    a:visited {
+        color: orangered;
+    }
 
-  .work-image-l {
-    max-width: 100%;
-    max-height: 100%;
+    /* mouse over link */
 
-  }
+    a:hover {
+        color: black;
+        text-decoration: none;
+    }
 
-  .work-image-r {
-    max-width: 100%;
-    max-height: 100%;
-    text-align: right;
+    /* Buttons */
 
-  }
+    .work-image-l {
+        max-width: 100%;
+        max-height: 100%;
 
-  .dologo {
-    height: 200px;
-    width: 200px;
-  }
+    }
 
-  .nametype {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold
-  }
+    .dologo {
+        height: 200px;
+        width: 200px;
+    }
 
-  .linktype {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold
-  }
+    .nametype {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold
+    }
 
-  .bio {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: left;
-    font-size: 30px
-  }
+    .linktype {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold
+    }
 
-  .bio2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: left;
-    font-size: 15px;
-  }
+    .bio {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-align: left;
+        font-size: 30px
+    }
 
-  .circle {
-    width: 18px;
-    height: 18px;
-    background: #333333;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-  }
+    .bio2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-align: left;
+        font-size: 15px;
+    }
 
-  .main-image img {
-    max-width: 100%;
-    overflow: hidden;
-    background-size: contain;
-  }
+    .bio22 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-align: left;
+        font-size: 15px;
+        border-left: solid grey 1px;
+    }
 
-  .spacer {
-    height: 25px;
-    background-color: #FFFFFF;
-  }
+    .main-image img {
+        max-width: 100%;
+        overflow: hidden;
+        background-size: contain;
+    }
 
-  .spacer-black {
-    height: 25px;
-    background-color: #333333;
-  }
+    .social-icon-align {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 10px;
+        padding-top: 30px;
+    }
 
-  .social-icon-align {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 10px;
-    padding-top: 30px;
-  }
+    .social-icon-square img {
+        width: 30px;
+        height: 30px;
+    }
 
-  .social-icon-square img {
-    width: 30px;
-    height: 30px;
-  }
+    .social-icon-square2 img {
+        width: 20px;
+        height: 20px;
+    }
 
-  .social-icon-square2 img {
-    width: 20px;
-    height: 20px;
-  }
+    .social-icon-rectangle img {
+        height: 30px;
+    }
 
-  .social-icon-rectangle img {
-    height: 30px;
-  }
+    .logo-align {
+        padding-top: 10px;
+    }
 
-  .logo-align {
-    padding-top: 10px;
-  }
+    .logo-align img {
+        height: 70px;
+    }
 
-  .logo-align img {
-    height: 70px;
-  }
+    .thumbnail-gallery-align img:hover {
+        background-color: #798A94;
+        cursor: pointer;
+    }
 
-  .thumbnail-gallery-align {
-    display: flex;
-    justify-content: space-around;
-  }
+    hr {
+        border-width: 2px;
+        border-color: #798A94;
+    }
 
-  .thumbnail-gallery-align img:hover {
-    background-color: #798A94;
-    cursor: pointer;
-  }
+    .biopic img {
+        height: 300px;
+    }
 
-  hr {
-    border-width: 2px;
-    border-color: #798A94;
-  }
+    h5 {
+        padding-top: 15px;
+    }
 
-  .biopic img {
-    height: 300px;
-  }
+    h3 {
+        font-size: 25px;
+        font-weight: bold
+    }
 
-  h5 {
-    padding-top: 15px;
-  }
+    h1 {
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 1.3px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff
+    }
 
-  h3 {
-    font-size: 25px;
-    font-weight: bold
-  }
+    /* Hover  */
 
-  h1 {
-    font-size: 40px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff
-  }
+    .content {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
 
+    .content .content-overlay {
+        background: #808080;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        text-align: left;
+        padding-left: 15px;
+        -webkit-transition: all 0.4s ease-in-out 0s;
+        -moz-transition: all 0.4s ease-in-out 0s;
+        transition: all 0.4s ease-in-out 0s;
+    }
 
+    .content:hover .content-overlay {
+        opacity: 0;
+    }
 
-  /* Hover  */
+    .content-image {
+        width: 100%;
+    }
 
-  .content {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
+    .content-details {
+        position: absolute;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
 
-  .content .content-overlay {
-    background: orangered;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    text-align: left;
-    padding-left: 15px;
-    -webkit-transition: all 0.4s ease-in-out 0s;
-    -moz-transition: all 0.4s ease-in-out 0s;
-    transition: all 0.4s ease-in-out 0s;
-  }
+    .content:hover .content-details {
+        top: 50%;
+        left: 50%;
+        opacity: 1;
+    }
 
-  .content:hover .content-overlay {
-    opacity: 0;
-  }
+    .content-details h3 {
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.5em;
+        text-transform: uppercase;
+    }
 
-  .content-image {
-    width: 100%;
-  }
+    .content-details p {
+        color: #fff;
+        font-size: 0.8em;
+    }
 
-  .content-details {
-    position: absolute;
-    text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }
+    .fadeIn-bottom {
+        top: 80%;
+    }
 
-  .content:hover .content-details {
-    top: 50%;
-    left: 50%;
-    opacity: 1;
-  }
+    .skill-name {
+        text-align: left;
+    }
 
-  .content-details h3 {
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    margin-bottom: 0.5em;
-    text-transform: uppercase;
-  }
+    @media only screen and (max-width: 480px) {
 
-  .content-details p {
-    color: #fff;
-    font-size: 0.8em;
-  }
+        body {
+            text-align: center;
+        }
 
-  .fadeIn-bottom {
-    top: 80%;
-  }
+        .content-overlay {
+            display: none;
+        }
 
-  .fadeIn-top {
-    top: 20%;
-  }
+        .block-btn {
+            pointer-events: none;
+        }
 
-  .fadeIn-left {
-    left: 20%;
-  }
+    }
 
-  .fadeIn-right {
-    left: 80%;
-  }
+    @media only screen and (max-width: 320px) {
+        .container {
+            text-align: center;
+        }
+    }
+
 </style>
