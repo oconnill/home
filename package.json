@@ -5,10 +5,11 @@
   "author": "oconnill <doconnelldesign@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "node build/dev-server.js",
     "start": "node server.js",
     "build": "node build/build.js",
-    "scss": "node-sass --watch sass -o css"
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "test": "npm run unit"
   },
   "dependencies": {
     "express": "^4.16.2",
