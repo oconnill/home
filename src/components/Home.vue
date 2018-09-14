@@ -78,7 +78,7 @@
                             <img class="content-image work-image-l" :src="shiftclick">
                             <div class="content-details fadeIn-bottom">
                                 <button class="btn btn-default block-btn">
-                                    <a href="http://www.mrdanieloconnell.com/shiftclick.ttf" download>DOWNLOAD</a>
+                                    <a href="https://www.dropbox.com/s/f6x7s5pm1sbe7pe/shiftclick%20%281%29.ttf?dl=0" download>DOWNLOAD</a>
                                 </button>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                     <br>
                     <br> Education:
                     <br> Boise Code Works - Immersive Full Stack Developer Course
-                    <br> Columbia College - Chicago Bachelors Fine Arts Graphic Design
+                    <br> Columbia College - Bachelors Fine Arts Graphic Design
                 </p>
                 <div class="social-icon-square2">
                     <a href="mailto:mrdanieloconnellsoffice@gmail.com">
@@ -249,7 +249,7 @@
                         name: 'Shift Click',
                         image: require('../assets/shiftclickalpha.png'),
                         description: 'Shift Click, an Etch A Sketch inspired font',
-                        demoLink: 'http://www.mrdanieloconnell.com/shiftclick.ttf',
+                        demoLink: 'https://www.dropbox.com/s/f6x7s5pm1sbe7pe/shiftclick%20%281%29.ttf?dl=0',
                         gitHubLink: ''
                     },
                 },
@@ -524,9 +524,7 @@
             display: none;
         }
 
-        .block-btn {
-            pointer-events: none;
-        }
+
 
     }
 
@@ -534,6 +532,7 @@
         .container {
             text-align: center;
         }
+
     }
 
 </style>
